@@ -1,0 +1,80 @@
+body{
+  background-image: url("imgs/fundo-mario.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed;
+
+  border-left: 5px solid yellow;
+  border-right: 5px solid yellow;
+  font-family: 'Poppins', sans-serif;
+
+}
+.sobre{
+  background-color: #ffffffbe;
+  border: transparent;
+  position: relative;
+  top: 1em;
+  margin-left: 330px;
+  margin-right: 330px;
+
+}
+h1{
+  font-size: 40px;
+  text-align: center;
+  color: red;
+}
+.texto{
+font-size: 25px;
+text-align: center;
+color: black;
+margin-left: 50px;
+margin-right: 50px;
+}
+.fases{
+  text-align: center;
+  font-size: 30px;
+  color: yellow;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#nome-usuario{
+
+}
+#nome-senha{
+
+}
+#email{
+
+}
+#botao-entrar{
+  border-radius: 10px;
+  height:30px;
+  color:#FFFFFF;
+  background-color: yellow;
+  font-size: 25px;
+  box-shadow: 3px 3px 3px  yellow;
+  padding: center;
+  text-align: center;
+}
+#botao-cadastro{
+  border-radius: 10px;
+  height:30px;
+  color:#FFFFFF;
+  background-color: orange;
+  font-size: 25px;
+  box-shadow: 3px 3px 3px orange;
+  padding: center;
+  text-align: center;
+}
+a{
+  border-radius: 10px;
+  height:30px;
+  color:#FFFFFF;
+  background-color: blue;
+  font-size: 25px;
+  box-shadow: 3px 3px 3px blue;
+  padding: center;
+  text-align: center;
+}

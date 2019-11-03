@@ -1,0 +1,98 @@
+@font-face{
+	font-family: "HARRYP";
+	src: url("HARRYP__.TTF");
+}
+
+h1{
+	font-family: "HARRYP";
+	text-align: center;
+  font-size: 55px;
+
+
+    }
+		body{
+ background-image:url("imagens/fundo1.jpg");
+
+ }
+
+ h2{
+    	font-family: "HARRYP";
+    text-align: center;
+  font-size: 35px;
+    }
+main{
+    	text-align: center;
+		height: 70%;
+    }
+#nome-usuario{
+	border-radius: 10px;
+height:30px;
+font-family: "HARRYP";
+font-size: 20px;
+box-shadow: 3px 3px 3px  #DEB887;
+outline: none;
+}
+
+#nome-senha{
+border-radius: 10px;
+height:30px;
+font-family: "HARRYP";
+font-size: 20px;
+box-shadow: 3px 3px 3px  #DEB887;
+outline: none;
+}
+#botao-cadastro{
+border-radius: 10px;
+height:30px;
+color:#FFFFFF;
+background-color: #8B0000;
+font-family: "HARRYP";
+font-size: 25px;
+box-shadow: 3px 3px 3px  #DEB887;
+}
+#botao-entrar{
+border-radius: 10px;
+height:30px;
+color:#FFFFFF;
+background-color: #8B0000;
+font-family: "HARRYP";
+font-size: 25px;
+box-shadow: 3px 3px 3px  #DEB887;
+}
+
+.login{
+
+	border: 1px solid #D2B48C;
+  width: 30%;
+    height: 70%;
+  display:inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: center;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px  #DEB887;
+  background-image:linear-gradient(#D2B48C, #DEB887,#FFDEAD);
+    text-align: center;
+}
+#email{
+	border-radius: 10px;
+height:30px;
+font-family: "HARRYP";
+font-size: 20px;
+box-shadow: 3px 3px 3px  #DEB887;
+outline: none;
+}
+@media screen and (orientation: portrait) {
+	.login{
+ width: 70%;
+	}
+	main{
+	height:170%;
+	}
+	main h1{
+	font-size:40px;
+	}
+  }
+p{
+
+}
