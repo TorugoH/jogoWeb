@@ -38,7 +38,7 @@ function create(){
 
             /*Jogador*/
             jogador=this.physics.add.sprite(100,500,'player');//criando jogador
-            jogador.setBounce(0.2);
+            jogador.setBounce(0.2);jogador=this.physics.add.sprite(100,500,'player');
             jogador.setCollideWorldBounds(true);
 
             /*Criando animação do personagem*/
