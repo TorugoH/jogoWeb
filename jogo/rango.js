@@ -21,11 +21,11 @@ let tempo=0;
 var Game=new Phaser.Game(config);
 //carregar os objetos
 function preload(){
-    this.load.image('comidaboa','maca.png');
-    this.load.image('player','dino.png');
-    this.load.image('comidaruim','ruim.png');
-    this.load.image('fundo','fundo.jpg');
-    this.load.image('plataforma','platform.png');
+    this.load.image('comidaboa','/img/coxinha.png');
+    this.load.image('player','/img/hasanand.png');
+    this.load.image('comidaruim','/img/coxinha-estragada.png');
+    this.load.image('fundo','/img/cenario-rango.png');
+    this.load.image('plataforma','/img/platform.png');
 }
 
 function create(){
@@ -124,11 +124,11 @@ function comidaEstragada(){
 }
 
 function comidaTragavel(){
-        let bc = (jogador.y <400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bc = (jogador.x <400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
         comidaBoa=this.physics.add.group({
              key :'comidaboa',
-             repeat:1,
-             setXY:{x:(bc*2), y:3, stepX:70}
+             repeat:0,
+             setXY:{x:bc, y:3, stepX:70}
         });
     comidaBoa.children.iterate(function(child){
         child.setBounceX(Phaser.Math.FloatBetween(1,2));

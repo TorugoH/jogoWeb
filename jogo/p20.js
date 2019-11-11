@@ -18,11 +18,11 @@ let config={
 let jogador,movimentos,tijo,ponto,maca,inimigo;
 var Game=new Phaser.Game(config);
 function preload(){
-    this.load.image('player','dino.png');
-    this.load.image('fundo','fundo.jpg');
-    this.load.image('bloco','bloco.png');
-    this.load.image('maca','maca.png');
-    this.load.image('inimigo','ruim.png')
+    this.load.image('player','/img/dino.png');
+    this.load.image('fundo','/img/fundo.jpg');
+    this.load.image('bloco','/img/bloco.png');
+    this.load.image('maca','/img/maca.png');
+    this.load.image('inimigo','/img/ruim.png')
 }
 function create(){
     this.add.image(400,300,'fundo');
