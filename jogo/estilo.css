@@ -1,7 +1,9 @@
 body{
-    background-color: aquamarine;
+    display: grid;
+    background-color: black;
 }
 canvas{
     position: relative;
-    left: 5em;
+    top:1em;
+    justify-self: center;
 }

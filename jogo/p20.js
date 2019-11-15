@@ -1,6 +1,6 @@
 let config={
     type:Phaser.AUTO,
-    width:800,
+    width:900,
     height:600,
     physics:{
         default:'arcade',
@@ -18,21 +18,20 @@ let config={
 let jogador,movimentos,tijo,ponto,maca,inimigo;
 var Game=new Phaser.Game(config);
 function preload(){
-    this.load.image('player','/img/dino.png');
+    this.load.image('player','/img/hasanand.png');
     this.load.image('fundo','/img/fundo.jpg');
     this.load.image('bloco','/img/bloco.png');
     this.load.image('maca','/img/maca.png');
-    this.load.image('inimigo','/img/ruim.png')
+    this.load.image('inimigo','/img/freira.png');
+    this.load.image('cuidado','/img/caution.png')
 }
 function create(){
     this.add.image(400,300,'fundo');
     tijo=this.physics.add.staticGroup();
-    maca=this.physics.add.staticGroup();
-    //inimigo=this.physics.add.staticGroup();
-    //primeira fileira de bloquinhos
-    maca.create(50,50,'maca');
+    placa=this.physics.add.staticGroup();
     tijo.create(100,100,'bloco');
     tijo.create(100,200,'bloco');
+    placa.create(175,250,'cuidado')
     tijo.create(100,300,'bloco');
     tijo.create(100,400,'bloco');
     tijo.create(100,500,'bloco');
@@ -60,10 +59,15 @@ function create(){
     tijo.create(700,300,'bloco');
     tijo.create(700,400,'bloco');
     tijo.create(700,500,'bloco');
+    maca=this.physics.add.staticGroup();
+    maca.create(700,550,'maca');
+            maca.children.iterate(function(child){
+        child.setBounceX(Phaser.Math.FloatBetween(0.4,0.8));
+    });
     //maca.create(750,560,'maca');
     jogador=this.physics.add.sprite(500,500,'player');
     jogador.setCollideWorldBounds(true);
-    inimigo=this.physics.add.sprite(600,455,'inimigo');
+    inimigo=this.physics.add.sprite(100,455,'inimigo');
     inimigo.enableBody = true;
     inimigo.setCollideWorldBounds(true);
     //inimigo.create(600,700,'inimigo');
@@ -122,14 +126,11 @@ function create(){
     movimentos=this.input.keyboard.createCursorKeys();
     
 
-    this.physics.add.collider(maca,jogador,contadorDeponto);
     //this.physics.add.collider(jogador,inimigo,aproximaInimigo);
     this.physics.add.collider(tijo,inimigo,aproximaInimigo);
-      //  inimigo.setVelocityX(0);
-      //inimigo.body.velocity.x=0;
-      //console.log('encotrei');
-      
-      //aproximaInimigo(inimigo,jogador);
+    this.physics.add.collider(placa,inimigo);
+    this.physics.add.collider(placa,jogador);
+    this.physics.add.overlap(maca,jogador,contadorDeponto,null,this);
     }
     
     
@@ -137,33 +138,39 @@ function create(){
         if(movimentos.left.isDown){
             jogador.setVelocityX(-260);
             jogador.anims.play('left',true);
-            inimigo.setVelocityX(-260);
+          //  inimigo.setVelocityX(-160);
          //   inimigo.anims.play('left',true);//adcionando a animação 
          }
       else if(movimentos.right.isDown){
         jogador.setVelocityX(260);
         jogador.anims.play('right',true);
-        inimigo.setVelocityX(260);
+        //inimigo.setVelocityX(160);
         //inimigo.anims.play('right',true);//adcionando a animação
         }
          else{
            jogador.setVelocityX(0);
-           inimigo.setVelocityX(0);
+      //     inimigo.setVelocityX(0);
           }  
      if(movimentos.up.isDown){
             jogador.setVelocityY(-260);
-            inimigo.setVelocityY(-260);
+          //  inimigo.setVelocityY(-160);
       }
       else if(movimentos.down.isDown){
         jogador.setVelocityY(260);
-        inimigo.setVelocityY(260);
+        //inimigo.setVelocityY(160);
       }
-      else{
-          jogador.setVelocityY(0);
-          inimigo.setVelocityY(0);
+      
+      if(inimigo.x>jogador.x){
+          inimigo.x--;
       }
-      if(inimigo.body.position.x<jogador.body.position.y){
-          inimigo.setVelocityX(20);
+      else if(inimigo.x<jogador.x){
+          inimigo.x++;
+      }
+      if(inimigo.y<jogador.y){
+          inimigo.y++;
+      }
+      else if(inimigo.y>jogador.y){
+          inimigo--;
       }
     
 }
@@ -171,9 +178,8 @@ function contadorDeponto(maca,jogador){
     let i=0; 
     i++;
     console.log('i');
-    maca.destroy()
     //destroi();
-
+    
 }
 function aproximaInimigo(inimigo,tijo){
     if (inimigo.body.blocked.left){
