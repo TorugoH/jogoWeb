@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("back-end.php");?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,35 +7,28 @@
    <link rel="stylesheet" href="back-end.php">
    <link rel="stylesheet" href="cadastrar-entrar.css">
 
-
     </head>
 <body>
 <main>
   <div class="sobre">
-
-
     <p id="fases">Olá! Seja bem vindo ao jogo “CAMPINF II”!!</p>
       <p id="texto"> Para jogar você precisará de um cadastro,
        mas não fique chateado! É bem facinho e você só precisa responder algumas perguntinhas
       que Voilá, o jogo vai estar livre pra sua experiência. Vem comigo nessa hum?!</p>
         <div class="login">
-
         <h1>Login</h1>
-            <form name="f_cad" action="verificacao.php" method="get">
+            <form name="f_cad" action="verificacao.php"method="get">
                 <p><input type="text" name="nome-usuario" id="nome-usuario"placeholder="Digite seu nick..."></p>
                 <p><input type="password" name="nome-senha"id="nome-senha" placeholder="Digite sua senha..."></p>
-                    <button id="botao-entrar" type="submit">Entrar</button>
+                    <button id="botao-entrar"type="submit">Entrar</button>
                     <p>Não tem o cadastro? Clique no link abaixo!</p>
                       <a href="cadastrar.html">Cadastrar</a>
-
-
-
-</main>
+                    </main>
     </div>
       </div>
+      <?php include_once('verificacao.php');?>
 <script type="text/javascrip" src="entrar.js"></script>
 <script type="text/javascript" src=>
-
 </script>
 </body>
 </html>

@@ -7,16 +7,18 @@ $id=session_id();
 if(!$conectar){
   echo("Conexão invalida!!");
 }
-$consulta="SELECT * from cadastro WHERE email='$email' and usuario='$nome'";
+/*verifica se a usuario cadastrado*/
+$consulta="SELECT * from vitor WHERE email='$email' and usuario='$nome'";
 $resultadp=mysqli_query($conectar,$consulta);
 $linha=mysqli_affected_rows($conectar);
 if($linha>0){
   echo 'usuario ja cadastrado';
-  include('cadastrar.html');
+  header('cadastrar.html');
 }else{
-$sql_code = "INSERT INTO cadastro(email,usuario,senha) VALUES ('$email','$nome','$senha')";
+  /*se não tiver ele cadastra*/
+$sql_code = "INSERT INTO vitor(email,usuario,senha) VALUES ('$email','$nome','$senha')";
 $sql_code=mysqli_query($conectar,$sql_code);
-include('principal.html');
+header('principal.html');
 echo $id;
 }
 ?>
