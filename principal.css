@@ -1,14 +1,12 @@
 body{
-  background-image: url("imgs/fundo-mario.jpg");
+  background-image: url("imgs/fundo-mario.JPG");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment:fixed;
-
   border-left: 5px solid yellow;
   border-right: 5px solid yellow;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: monospace;
 }
 
 header ul {
@@ -38,20 +36,14 @@ header a {
   top: 1em;
   margin-left: 330px;
   margin-right: 330px;
+  padding: 10px;
 
 }
 
 #cabecalho{
   font-size: 70px;
   text-align: center;
-}
-
-.menu:hover{
-  font-size: 85px;
-}
-
-.divh:hover{
-  font-size: 20px;
+  padding: 100px;
 }
 
 h1{
@@ -75,10 +67,11 @@ h1{
 
   .texto{
   font-size: 25px;
-  text-align: center;
+  text-align: justify;
   color: black;
   margin-left: 50px;
   margin-right: 50px;
+  font-family: monospace;
   }
 
   h1{
@@ -170,4 +163,24 @@ h1{
   .mostrar .modal{
   animation: modal .3s;
   }
+
+  #cabecalho a{
+    display: block;
+    text-decoration: none;
+  }
+
+  #campinf{
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px; 
+  } 
+  .menu{
+    transition:transform .2s cubic-bezier(.37,1.89,.59,.73);
+  }
+  .menu:hover{
+    transform: scale(1.5);
+  }
+  
   /**/
