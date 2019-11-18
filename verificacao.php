@@ -13,7 +13,7 @@
   $resultadp=mysqli_query($bd,$consulta);
   $linha=mysqli_affected_rows($bd);
   if($linha>0){
-    header('Location:principal.html');
+    header('Location:index-jogo.html');
     ?>
   <?php }
   else{
