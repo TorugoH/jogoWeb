@@ -1,4 +1,5 @@
 import p20 from "./p20.js"
+import mapa from "./mapa.js"
 
 let config = {
     type: Phaser.AUTO,
@@ -23,6 +24,8 @@ let config = {
 
 var game = new Phaser.Game(config);
 game.scene.add('p20', p20);
+game.scene.add('mapa', mapa);
+
 
 let fundo, botaoJogar;
 
@@ -40,7 +43,7 @@ function create() {
 
     botaoJogar.setInteractive();
     botaoJogar.on('pointerup', () => {
-        this.scene.start('p20');
+        this.scene.start('mapa');
     });
 
 }

@@ -1,34 +1,16 @@
-let configMapa = {
-    type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    backgroundColor: '0x000000',
-    pixelArt: true,
-    parent: 'containerJogo',
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 0 },
-            debug: false
-        }
-    },
-    scene: {
-        preload: preload,
-        create: create,
-        update: update,
-    }
-};
+
 
 export default class mapa extends Phaser.Scene {
-    constructor(configMapa) {
-        super(configMapa);
+    constructor(config) {
+        super(config);
     }
 
     preload(){
-
+        this.load.image('mapa', 'jogo/img/MAPA_CAMPUS_2-1024x769.png');
     }
 
     create(){
-
+        this.add.image(400, 300, 'mapa').setScale(0.2);
+        
     }
 }

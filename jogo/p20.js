@@ -226,7 +226,7 @@ export default class p20 extends Phaser.Scene {
             this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', {fontSize: '32px', fill: '#000000'}).setOrigin(0.5, 0.5);
             this.textoVoltar.setInteractive();
             this.textoVoltar.on('pointerup', () => {
-                this.scene.start('mapa');
+                this.scene.start('mapa', 'aaaa');
             })
             
             this.coracao1.destroy();
