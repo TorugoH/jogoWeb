@@ -15,8 +15,10 @@ let config={
         update:update,
     }
 }
-let jogador,movimentos,mesa,ponto,maca,inimigo,quadroDepontuacao,pontuacao=0;
+let cont=0,j=0;
+let jogador,cora,movimentos,mesa,caderno,ponto,maca,inimigo,quadroDepontuacao,lapis,pontuacao=0;
 var Game=new Phaser.Game(config);
+let coracao=0,coracao2=0,coracao3=0;
 function preload(){
     this.load.image('player','/img/hasanand.png');
     this.load.image('fundo','/img/fundop20.png');
@@ -24,53 +26,71 @@ function preload(){
     this.load.image('maca','/img/caderno2.png');
     this.load.image('inimigo','/img/freira.png');
     this.load.image('cuidado','/img/caution.png')
+    this.load.image('cora','/img/vida2.png');
+    this.load.image('caderno','/img/caderno.png');
+    this.load.image('lapis','/img/lapis.png');
 }
 function create(){
     this.add.image(400,300,'fundo');
     mesa=this.physics.add.staticGroup();
     placa=this.physics.add.staticGroup();
     maca=this.physics.add.staticGroup();
+    caderno=this.physics.add.staticGroup();
+    lapis=this.physics.add.staticGroup();
+    coracao=this.physics.add.staticGroup();
+    coracao2=this.physics.add.staticGroup();
+    coracao3=this.physics.add.staticGroup();
     mesa.create(100,100,'mesa');
+    mesa.create(100,210,'mesa');
+    mesa.create(100,310,'mesa');
+    mesa.create(100,410,'mesa');
+    mesa.create(100,510,'mesa');
     placa.create(175,450,'cuidado');
-    mesa.create(100,200,'mesa');
     placa.create(330,200,'cuidado');
-    mesa.create(100,300,'mesa');
-    mesa.create(100,400,'mesa');
-    mesa.create(100,500,'mesa');
     //segunda fileira de bloquinhos
-    mesa.create(250,100,'mesa');
-    mesa.create(250,200,'mesa');
-    mesa.create(250,300,'mesa');
-    mesa.create(250,400,'mesa');
-    mesa.create(250,500,'mesa');
+    mesa.create(255,115,'mesa');
+    mesa.create(255,215,'mesa');
+    mesa.create(255,315,'mesa');
+    mesa.create(255,415,'mesa');
+    mesa.create(255,515,'mesa');
     placa.create(395,250,'cuidado');
+    placa.create(260,250,'cuidado');
+    placa.create(400,350,'cuidado');
     //terceira fileira
-    mesa.create(400,100,'mesa');
-    mesa.create(400,200,'mesa');
-    mesa.create(400,300,'mesa');
-    mesa.create(400,400,'mesa');
-    mesa.create(400,500,'mesa');
+    mesa.create(405,110,'mesa');
+    mesa.create(405,210,'mesa');
+    mesa.create(405,310,'mesa');
+    mesa.create(405,410,'mesa');
+    mesa.create(405,510,'mesa');
     //quarta fileira
-    mesa.create(550,100,'mesa');
-    mesa.create(550,200,'mesa');
-    mesa.create(550,300,'mesa');
-    mesa.create(550,400,'mesa');
-    mesa.create(550,500,'mesa');
+    mesa.create(555,100,'mesa');
+    mesa.create(555,210,'mesa');
+    mesa.create(555,310,'mesa');
+    mesa.create(555,410,'mesa');
+    mesa.create(555,510,'mesa');
     //quinta fileira
-    mesa.create(700,100,'mesa');
-    mesa.create(700,200,'mesa');
-    mesa.create(700,300,'mesa');
-    mesa.create(700,400,'mesa');
+    mesa.create(705,100,'mesa');
+    mesa.create(705,210,'mesa');
+    mesa.create(705,310,'mesa');
+    mesa.create(705,410,'mesa');
+    mesa.create(705,510,'mesa');
+    placa.create(705,460,'cuidado');
     placa.create(700,150,'cuidado');
-    mesa.create(700,500,'mesa');
-    maca.create(765,565,'maca');
+    placa.create(760,250,'cuidado');
+    maca.create((Math.random()*600)/2,Math.random()*600,'maca');
+    caderno.create(320,250,'caderno');
+    lapis.create(760,200,'lapis');
     //maca.create(750,560,'maca');
     jogador=this.physics.add.sprite(500,500,'player');
     jogador.setCollideWorldBounds(true);
     inimigo=this.physics.add.sprite(100,455,'inimigo');
     inimigo.enableBody = true;
     inimigo.setCollideWorldBounds(true);
-    
+    //coracao=[cora,cora,cora];
+
+    coracao.create(50,650,'cora');
+    coracao2.create(100,650,'cora');
+    coracao3.create(150,650,'cora');
     this.anims.create({
         key:'left',
         frames:[{key:'player',frame:0}],
@@ -120,17 +140,33 @@ function create(){
         frameRate: 10,
         repeat: -1
     });
-    quadroDepontuacao=this.add.text(16,650,'Pontuação: 0',{
-        fontSize:'32px',
-        fill:'#000'     
-   });
+    //quadroDepontuacao=this.add.text(16,650,'Pontuação: 0',{
+      //  fontSize:'32px',
+        //fill:'#000'     
+   //});
     movimentos=this.input.keyboard.createCursorKeys();
     this.physics.add.collider(jogador,mesa);
     this.physics.add.collider(placa,inimigo);
     this.physics.add.collider(placa,jogador);
-    this.physics.add.overlap(maca,jogador,contadorDeponto,null,this);
-    this.physics.add.overlap(inimigo,jogador,perde,null,this);
     this.physics.add.collider(mesa,inimigo);
+    this.physics.add.collider(maca,jogador,contadorDeponto);
+    this.physics.add.collider(caderno,jogador,coletor);
+    this.physics.add.overlap(inimigo,jogador,perde,null,this);
+    this.physics.add.overlap(lapis,jogador,lapizeira,null,this);
+    if(cont==1){
+        //quadroDepontuacao.setText("TEMPO ESGOTADO");
+        coracao.destroy();
+
+    }
+   else if(cont==2){
+        //quadroDepontuacao.setText("TEMPO ESGOTADO");
+        coracao2.destroy();
+    }
+    if(cont==3){
+        //quadroDepontuacao.setText("TEMPO ESGOTADO");
+        coracao3.destroy();
+
+    }
     }
     function update(){
         if(movimentos.left.isDown){
@@ -172,16 +208,21 @@ function create(){
 }
 function contadorDeponto(maca,jogador){
     pontuacao+=1;
-        quadroDepontuacao.setText('Pontuação '+pontuacao); 
+    jogador.disableBody(true, true);
 }
-function perde(){
+function coletor(caderno,jogador){
+    pontuacao+=1;
+    jogador.disableBody(true, true);
+}
+
+function lapizeira(lapis,jogador){
+    pontuacao+=1;
+    jogador.disableBody(true, true);
+}
+function perde(coracao){
     console.log('te achei');
     inimigo.y=Math.random()*700;
     jogador.x=Math.random()*800;
-    let cont=0;
     cont++;
-    if(cont==3){
-        quadroDepontuacao.setText("TEMPO ESGOTADO");
-
-    }
+    //coracao.disableBody(true, true);
 }
