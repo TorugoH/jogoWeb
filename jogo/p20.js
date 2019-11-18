@@ -18,6 +18,7 @@ export default class p20 extends Phaser.Scene {
         this.load.image('cora', './jogo/img/vida2.png');
         this.load.image('caderno', './jogo/img/caderno.png');
         this.load.image('lapis', './jogo/img/lapis.png');
+        this.physics.gravity = 0;
     }
 
     create() {
