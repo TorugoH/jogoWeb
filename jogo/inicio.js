@@ -1,3 +1,5 @@
+import p20 from "./p20.js";
+
 let config = {
     type: Phaser.AUTO,
     width: 800,
@@ -20,7 +22,9 @@ let config = {
 };
 
 var game = new Phaser.Game(config);
-let fundo;
+game.scene.add('p20', p20);
+
+let fundo, botaoJogar;
 
 function preload() {
     this.load.image("fundo", "jogo/img/campus-2-pixilart.png");
@@ -32,7 +36,13 @@ function create() {
     fundo = this.add.image(400, 700, "fundo").setScale(4).setOrigin(0.5, 1);
     fundo.smoothed = false;
     this.add.image(400, 80, "titulo").setScale(0.15);
-    this.add.image(0, 0, "jogar").setScale(0.15).setOrigin(0);
+    botaoJogar = this.add.image(400, 650, "jogar").setScale(0.15).setOrigin(0.5);
+
+    botaoJogar.setInteractive();
+    botaoJogar.on('pointerup', () => {
+        this.scene.start('p20');
+    });
+
 }
 
 function update() { }
