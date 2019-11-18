@@ -1,22 +1,7 @@
-html, body {
-  height: 100%;
-}
-
 body{
-  background-image: url("imgs/fundo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment:fixed;
-  margin: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#containerJogo {
-  width: 800px;
-  height: 600px;
-  box-sizing: border-box;
-}
+    background-image: url("../imgs/fundo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;
+  }

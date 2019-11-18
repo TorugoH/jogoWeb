@@ -1,12 +1,9 @@
 body{
-  background-image: url("imgs/fundo-mario.JPG");
+  background-image: url("../imgs/fundo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment:fixed;
-
-  border-left: 5px solid yellow;
-  border-right: 5px solid yellow;
   font-family: monospace;
 
 }
@@ -62,6 +59,7 @@ margin-right: 50px;
   font-size: 20px;
   font-family: monospace;
   text-align: center;
+  cursor: pointer;
 }
 #botao-cadastro{
   border-radius: 10px;
@@ -71,6 +69,7 @@ margin-right: 50px;
   font-size: 20px;
   font-family: monospace;
   text-align: center;
+  cursor: pointer;
 }
 #centro{
   display: flex;
@@ -81,3 +80,14 @@ margin-right: 50px;
 #msg{
   font-size: 15px;
 }
+
+#cadastro{
+  height: 100px;
+}
+
+#login{
+  height: 100px;
+}
+
+
+
