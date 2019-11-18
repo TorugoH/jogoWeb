@@ -1,0 +1,198 @@
+body{
+  background-image: url("../imgs/fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed;
+  font-family: monospace;
+}
+
+header ul {
+  padding-left: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  opacity: 0.7;
+  position: fixed;
+}
+
+header li {
+  display: inline-block;
+font-family: 'Poppins', sans-serif;
+  margin: 0 1em;
+}
+
+
+header a {
+  text-decoration: none;
+}
+
+.sobre{
+  background-color: #ffffffbe;
+  border: transparent;
+  position: relative;
+  top: 1em;
+  margin-left: 330px;
+  margin-right: 330px;
+  padding: 10px;
+
+}
+
+#cabecalho{
+  font-size: 70px;
+  text-align: center;
+  padding: 100px;
+}
+
+h1{
+  font-size: 60px;
+  text-align: center;
+  color: green;
+}
+
+#jogar{
+  color: red;
+}
+
+#autores{
+  color: yellow;
+}
+
+#cadastro{
+  color: orange;
+}
+
+
+  .texto{
+  font-size: 25px;
+  text-align: justify;
+  color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-family: monospace;
+  }
+
+  h1{
+  font-size: 60px;
+  text-align: center;
+  color: green;
+  }
+
+  .fases{
+    text-align: center;
+    font-size: 30px;
+    color: yellow;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  h6{
+    text-align: center;
+    color: gray;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+
+  #jogar{
+  color: red;
+  }
+
+  #autores{
+  color: yellow;
+  }
+
+  #sobre{
+  color: orange;
+  }
+
+  .modal-container{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0,0,0, .5);
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .modal{
+  background: white;
+  width: 60px;
+  min-width: 500px;
+  padding: 180px;
+  border: 10px solid rgb(0, 135, 219);
+  box-shadow: 0 0 0 10px white;
+  position: relative;
+  }
+
+  .fechar{
+  position: absolute;
+  font-size: 1.3em;
+  top: -30px;
+  right: -30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgb(0, 135, 219);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0, .3);
+  }
+
+  .modal-container.mostrar{
+  display: flex;
+  }
+
+  @keyframes modal{
+  from{
+   opacity: 0;
+   transform: translate3d(0, -60px, 0);
+   }
+  to{
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+   }
+  }
+
+  .mostrar .modal{
+  animation: modal .3s;
+  }
+
+  #cabecalho a{
+    display: block;
+    text-decoration: none;
+  }
+
+  #campinf{
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px; 
+  } 
+  .menu{
+    transition:transform .2s cubic-bezier(.37,1.89,.59,.73);
+    font-size: 30px;
+
+  }
+  .menu:hover{
+    transform: scale(1.5);
+  }
+  .inicial{
+  height: 100px;
+  }
+
+  #botao-modal{
+    border:none;
+    background-color: transparent;
+  }
+
+  #botao-modal img{
+    height: 100px;
+    cursor: pointer;
+  }
+  /**/

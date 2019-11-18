@@ -1,0 +1,93 @@
+body{
+  background-image: url("../imgs/fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed;
+  font-family: monospace;
+
+}
+.sobre{
+  background-color: #ffffffbe;
+  border: transparent;
+  position: relative;
+  top: 1em;
+  margin-left: 330px;
+  margin-right: 330px;
+  padding: 20px;
+}
+h1{
+  font-size: 40px;
+  text-align: center;
+  color: red;
+}
+.texto{
+font-size: 25px;
+text-align: center;
+color: black;
+margin-left: 50px;
+margin-right: 50px;
+}
+.fases{
+  text-align: center;
+  font-size: 30px;
+  color: yellow;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#nome-usuario{
+  border-radius: 10px;
+  height: 30px;
+  width: 20vw;
+}
+#nome-senha{
+  border-radius: 10px;
+  height: 30px;
+  width: 20vw;
+}
+#email{
+  border-radius: 10px;
+  height: 30px;
+  width: 20vw;
+}
+#botao-entrar{
+  border-radius: 10px;
+  height:30px;
+  color:#FFFFFF;
+  background-color:orange;
+  font-size: 20px;
+  font-family: monospace;
+  text-align: center;
+  cursor: pointer;
+}
+#botao-cadastro{
+  border-radius: 10px;
+  height:30px;
+  color:#FFFFFF;
+  background-color: orange;
+  font-size: 20px;
+  font-family: monospace;
+  text-align: center;
+  cursor: pointer;
+}
+#centro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#msg{
+  font-size: 15px;
+}
+
+#cadastro{
+  height: 100px;
+}
+
+#login{
+  height: 100px;
+}
+
+
+

@@ -1,4 +1,4 @@
-import p20 from "./p20.js";
+import p20 from "./p20.js"
 
 let config = {
     type: Phaser.AUTO,
