@@ -13,12 +13,12 @@ $resultadp=mysqli_query($conectar,$consulta);
 $linha=mysqli_affected_rows($conectar);
 if($linha>0){
   echo 'usuario ja cadastrado';
-  header('cadastrar.html');
+  header('location:cadastrar.html');
 }else{
   /*se não tiver ele cadastra*/
 $sql_code = "INSERT INTO vitor(email,usuario,senha) VALUES ('$email','$nome','$senha')";
 $sql_code=mysqli_query($conectar,$sql_code);
-header('principal.html');
+header('location:index-jogo.html');
 echo $id;
 }
 ?>
