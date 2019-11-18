@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Cadastro</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="back-end.php">
-      <link rel="stylesheet" href="cadastrar-entrar.css">
-      <link rel="icon" type="imagem/png" href="imgs/icone.png">
+    <title>Cadastro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="back-end.php">
+    <link rel="stylesheet" href="css/cadastrar-entrar.css">
+    <link rel="icon" type="imagem/png" href="imgs/icone.png">
   </head>
 <body>
-<main>
+  <main>
     <div class="sobre">
-        <div class="login">
-        <h1><img src="https://fontmeme.com/permalink/191116/fc6c9fb09498f426f5afa035cb7dc950.png" alt="super-mario-font"></h1>
+      <div class="login">
+          <div id="centro">
+            <h1><img src="imgs/cadastro.png" alt="cadstro" id="cadastro"></h1>
             <form name="f_cad" action="back-end.php" method="get">
-                <div id="centro">
-                    <p><input type="email" id="email"placeholder="Digite seu email..." name="email"></p>
-                    <p><input type="text" name="nome-usuario"id="nome-usuario"placeholder="Digite seu nick..."></p>
-                    <p><input type="password" name="nome-senha"id="nome-senha" placeholder="Digite sua senha..."></p>
-                        <button id="botao-cadastro" type="submit">cadastrar-se</button>
-                        <p id="msg">Já tem cadastro?<a href="entrar.html">Clique aqui para fazer login</a></p>
-                </div>
-</main>
+              <p><input type="email" id="email"placeholder="Digite seu email..." name="email"></p>
+              <p><input type="text" name="nome-usuario"id="nome-usuario"placeholder="Digite seu nick..."></p>
+              <p><input type="password" name="nome-senha"id="nome-senha" placeholder="Digite sua senha..."></p>
+              <button id="botao-cadastro" type="submit">cadastrar-se</button>
+              <p id="msg">Já tem cadastro?<a href="entrar.html">Clique aqui para fazer login</a></p>
+            </form>
+          </div>
+      </div>
     </div>
-    </div>
-<script type="text/javascrip" src="cadastrar.js"></script>
-
-</script>
+  </main>
 </body>
 </html>
