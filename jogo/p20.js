@@ -157,8 +157,10 @@ export default class p20 extends Phaser.Scene {
         this.physics.add.collider(this.mesa, this.inimigo);
         this.physics.add.collider(this.maca, this.jogador, this.contadorDeponto);
         this.physics.add.collider(this.caderno, this.jogador, this.coletor);
+        this.physics.add.collider(this.lapis, this.jogador, this.lapizeira);
+
         this.physics.add.overlap(this.inimigo, this.jogador, this.perde, null, this);
-        this.physics.add.overlap(this.lapis, this.jogador, this.lapizeira, null, this);
+        //this.physics.add.overlap(this.lapis, this.jogador, this.lapizeira, null, this);
     }
 
     update() {
@@ -187,18 +189,19 @@ export default class p20 extends Phaser.Scene {
         } else if (this.inimigo.x == this.jogador.x) {
             this.inimigo.setVelocityX(0);
         }
-
+        
         if (this.inimigo.y < this.jogador.y) {
             this.inimigo.y++;
         } else if (this.inimigo.y > this.jogador.y) {
             this.inimigo.y--;
         }
     }
-
+    
     contadorDeponto(maca, jogador) {
         this.pontuacao++;
         jogador.disableBody(true, true);
-
+        console.log(this.pontuacao);
+        
         if (this.pontuacao == 3) {
             this.inimigo.destroy();
             this.add.text(400, 250, 'VOCÊ VENCEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
@@ -213,6 +216,7 @@ export default class p20 extends Phaser.Scene {
     coletor(caderno, jogador) {
         this.pontuacao++;
         jogador.disableBody(true, true);
+        console.log(this.pontuacao);
 
         if (this.pontuacao == 3) {
             this.inimigo.destroy();
@@ -228,6 +232,7 @@ export default class p20 extends Phaser.Scene {
     lapizeira(lapis, jogador) {
         this.pontuacao++;
         jogador.disableBody(true, true);
+        console.log(this.pontuacao);
 
         if (this.pontuacao == 3) {
             this.inimigo.destroy();
