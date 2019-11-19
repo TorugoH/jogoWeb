@@ -121,8 +121,8 @@ h1{
   .modal{
   background: white;
   width: 60px;
-  min-width: 500px;
-  padding: 180px;
+  min-width: 700px;
+  padding: 30px;
   border: 10px solid rgb(0, 135, 219);
   box-shadow: 0 0 0 10px white;
   position: relative;
@@ -195,4 +195,11 @@ h1{
     height: 100px;
     cursor: pointer;
   }
+
+  .fotoAutores{
+    height: 100px;
+    display: block;
+    border-radius: 1000px;
+  }
+ 
   /**/
