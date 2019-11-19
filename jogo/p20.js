@@ -23,6 +23,9 @@ export default class p20 extends Phaser.Scene {
         this.coracoes = 0;
     }
 
+    init() {
+        this.physics.world.gravity.y = 0;
+    }
 
     preload() {
         this.load.image('player', './jogo/img/hasanand.png');
@@ -34,7 +37,6 @@ export default class p20 extends Phaser.Scene {
         this.load.image('cora', './jogo/img/vida2.png');
         this.load.image('caderno', './jogo/img/caderno.png');
         this.load.image('lapis', './jogo/img/lapis.png');
-        this.physics.gravity = 0;
     }
 
     create() {
@@ -158,7 +160,7 @@ export default class p20 extends Phaser.Scene {
         this.physics.add.overlap(this.inimigo, this.jogador, this.perde, null, this);
         this.physics.add.overlap(this.lapis, this.jogador, this.lapizeira, null, this);
     }
-    
+
     update() {
         if (this.movimentos.left.isDown) {
             this.jogador.setVelocityX(-160);
@@ -169,7 +171,7 @@ export default class p20 extends Phaser.Scene {
         } else {
             this.jogador.setVelocityX(0);
         }
-        
+
         if (this.movimentos.up.isDown) {
             this.jogador.setVelocityY(-260);
         } else if (this.movimentos.down.isDown) {
@@ -177,7 +179,7 @@ export default class p20 extends Phaser.Scene {
         } else {
             this.jogador.setVelocityY(0);
         }
-        
+
         if (this.inimigo.x > this.jogador.x) {
             this.inimigo.x--;
         } else if (this.inimigo.x < this.jogador.x) {
@@ -185,36 +187,65 @@ export default class p20 extends Phaser.Scene {
         } else if (this.inimigo.x == this.jogador.x) {
             this.inimigo.setVelocityX(0);
         }
-        
+
         if (this.inimigo.y < this.jogador.y) {
             this.inimigo.y++;
         } else if (this.inimigo.y > this.jogador.y) {
             this.inimigo.y--;
         }
+    }
 
-    }
-    
     contadorDeponto(maca, jogador) {
-        this.pontuacao += 1;
+        this.pontuacao++;
         jogador.disableBody(true, true);
+
+        if (this.pontuacao == 3) {
+            this.inimigo.destroy();
+            this.add.text(400, 250, 'VOCÊ VENCEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar.setInteractive();
+            this.textoVoltar.on('pointerup', () => {
+                this.scene.start('mapa');
+            });
+        }
     }
-    
+
     coletor(caderno, jogador) {
-        this.pontuacao += 1;
+        this.pontuacao++;
         jogador.disableBody(true, true);
+
+        if (this.pontuacao == 3) {
+            this.inimigo.destroy();
+            this.add.text(400, 250, 'VOCÊ VENCEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar.setInteractive();
+            this.textoVoltar.on('pointerup', () => {
+                this.scene.start('mapa');
+            });
+        }
     }
-    
+
     lapizeira(lapis, jogador) {
-        this.pontuacao += 1;
+        this.pontuacao++;
         jogador.disableBody(true, true);
+
+        if (this.pontuacao == 3) {
+            this.inimigo.destroy();
+            this.add.text(400, 250, 'VOCÊ VENCEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar.setInteractive();
+            this.textoVoltar.on('pointerup', () => {
+                this.scene.start('mapa');
+            });
+        }
     }
-    
+
     perde(coracao) {
         this.cont--;
         if (this.cont == 2) {
             //quadroDepontuacao.setText("TEMPO ESGOTADO");
             this.coracao3.destroy();
-    
+
         }
         else if (this.cont == 1) {
             //quadroDepontuacao.setText("TEMPO ESGOTADO");
@@ -222,13 +253,13 @@ export default class p20 extends Phaser.Scene {
         }
         if (this.cont == 0) {
             //quadroDepontuacao.setText("TEMPO ESGOTADO");
-            this.add.text(400, 250, 'VOCÊ PERDEU!', {fontSize: '48px', fill: '#000000'}).setOrigin(0.5, 0.5);
-            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', {fontSize: '32px', fill: '#000000'}).setOrigin(0.5, 0.5);
+            this.add.text(400, 250, 'VOCÊ PERDEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5, 0.5);
             this.textoVoltar.setInteractive();
             this.textoVoltar.on('pointerup', () => {
                 this.scene.start('mapa', 'aaaa');
             })
-            
+
             this.coracao1.destroy();
             this.inimigo.destroy();
             this.physics.pause();
@@ -236,4 +267,16 @@ export default class p20 extends Phaser.Scene {
         this.inimigo.y = Math.random() * 700;
         this.jogador.x = Math.random() * 800;
     }
+
+    /* ganha() {
+        if (this.pontuacao == 3) {
+            this.inimigo.destroy();
+            this.add.text(400, 250, 'VOCÊ VENCEU!', { fontSize: '48px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar = this.add.text(400, 450, 'Clique aqui para voltar para o mapa', { fontSize: '32px', fill: '#000000' }).setOrigin(0.5, 0.5);
+            this.textoVoltar.setInteractive();
+            this.textoVoltar.on('pointerup', () => {
+                this.scene.start('mapa');
+            });
+        }
+    } */
 }
