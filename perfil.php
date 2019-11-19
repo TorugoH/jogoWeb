@@ -1,7 +1,7 @@
 
 <?php
 #include "perfil.php";
-  $bd=mysqli_connect('localhost','root','','test');
+  $bd=mysqli_connect('sql306.epizy.com','epiz_24805426','TzAXxlYaPUp','epiz_24805426_cadastros');
   session_start();
   $nome=$_SESSION['name'];
   if(!$bd){

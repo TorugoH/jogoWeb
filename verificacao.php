@@ -1,5 +1,5 @@
 <?php
-  $bd=mysqli_connect('localhost','root','','test');
+  $bd=mysqli_connect('sql306.epizy.com','epiz_24805426','TzAXxlYaPUp','epiz_24805426_cadastros');
 
   $nick=$_GET["nome-usuario"];
   $senha=$_GET["nome-senha"];
@@ -9,7 +9,7 @@
     echo "Falha na Conexão".mysqli_connect_error();
   }?>
   <?php
-  $consulta="SELECT * from vitor WHERE usuario='$nick' AND senha='$senha'";
+  $consulta="SELECT * from dados WHERE usuario='$nick' AND senha='$senha'";
   $resultadp=mysqli_query($bd,$consulta);
   $linha=mysqli_affected_rows($bd);
   if($linha>0){
